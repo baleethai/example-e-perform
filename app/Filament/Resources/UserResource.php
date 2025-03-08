@@ -37,7 +37,7 @@ class UserResource extends Resource
                     ->label('อีเมล'),
                 Forms\Components\DateTimePicker::make('email_verified_at')
                     ->nullable()
-                    ->label('อีเมลยืนยันเมื่อ'),
+                    ->label ('อีเมลยืนยันเมื่อ'),
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->dehydrateStateUsing(fn($state) => Hash::make($state))
