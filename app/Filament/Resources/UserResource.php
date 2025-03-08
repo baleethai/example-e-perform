@@ -17,10 +17,10 @@ use App\Filament\Resources\UserResource\RelationManagers;
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-collection';
-
     protected static ?string $navigationLabel = 'ผู้ใช้งาน';
+    protected static ?string $modelLabel = 'ผู้ใช้งาน';
+    protected static ?string $pluralModelLabel = 'ผู้ใช้งาน';
 
     public static function form(Form $form): Form
     {
@@ -58,18 +58,22 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('email_verified_at')
                     ->label('อีเมลยืนยันเมื่อ')
                     ->dateTime(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->label('สร้างเมื่อ')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->label('ปรับปรุงเมื่อ')
-                    ->dateTime(),
+                    
+                // Tables\Columns\TextColumn::make('created_at')
+                //     ->label('สร้างเมื่อ')
+                //     ->dateTime(),
+
+                // Tables\Columns\TextColumn::make('updated_at')
+                //     ->label('ปรับปรุงเมื่อ')
+                //     ->dateTime(),
+
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->label('แก้ไข'),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
